@@ -1,4 +1,8 @@
 
+variable ibmcloud_api_key {
+    description = "IBM API Key"
+}
+
 variable ibmcloud_resource_group {
     description = "IBM Cloud Resource Group"
 }
@@ -20,6 +24,11 @@ variable ibm_container_cluster___cluster_instance___machine_type {
 variable ibm_container_cluster___cluster_instance___hardware {
     description = "IBM Kube cluster hardware"
     default = "shared"
+}
+
+variable cluster_exists {
+    description = "Does cluster exist"
+    type = bool
 }
 
 data "ibm_resource_group" "group" {

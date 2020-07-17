@@ -1,9 +1,9 @@
 output "name" {
-    value = ibm_container_cluster.cluster_instance.name
+    value = local.cluster_name
     description = "The name of the cluster"
 }
 
 output "id" {
-    value = ibm_container_cluster.cluster_instance.id
+    value = local.cluster_id
     description = "The name of the cluster"
 }
