@@ -2,9 +2,13 @@ resource "ibm_container_cluster" "cluster_instance" {
   count = var.cluster_exists == false ? 1 : 0
   name            = var.ibm_container_cluster___cluster_instance___name
   datacenter      = var.ibm_container_cluster___cluster_instance___datacenter
+  default_pool_size = var.cluster_worker_count
   machine_type    = var.ibm_container_cluster___cluster_instance___machine_type
   hardware        = var.ibm_container_cluster___cluster_instance___hardware
   resource_group_id = data.ibm_resource_group.group.id
+  kube_version      = var.cluster_version
+  public_vlan_id    = var.public_vlan_id
+  private_vlan_id   = var.private_vlan_id  
   timeouts {
     create = "60m"
   }

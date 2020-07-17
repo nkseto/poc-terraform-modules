@@ -26,6 +26,29 @@ variable ibm_container_cluster___cluster_instance___hardware {
     default = "shared"
 }
 
+variable cluster_worker_count {
+  description = "The number of worker nodes for the cluster"
+  default     = 1 
+}
+
+variable "cluster_version" {
+  type        = string
+  description = "The IKS cluster version to install. Use `ibmcloud ks versions` to see a list of cluster versions"
+  default     = "1.17.7"
+}
+
+variable "private_vlan_id" {
+  type        = string
+  description = "Existing private VLAN id for cluster creation. Use `ibmcloud ks vlan ls --zone <zone>` to see a list of available private vlans."
+  default = ""
+}
+
+variable "public_vlan_id" {
+  type        = string
+  description = "Existing public VLAN number for cluster creation. Use `ibmcloud ks vlan ls --zone <zone>` to see a list of available public vlans."
+  default = ""
+}
+
 variable cluster_exists {
     description = "Does cluster exist"
     type = bool
