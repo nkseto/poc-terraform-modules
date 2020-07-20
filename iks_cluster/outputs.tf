@@ -5,5 +5,5 @@ output "name" {
 
 output "id" {
     value = local.cluster_id
-    description = "The name of the cluster"
+    description = "The id of the cluster"
 }

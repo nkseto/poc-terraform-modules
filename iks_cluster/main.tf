@@ -5,7 +5,7 @@ resource "ibm_container_cluster" "cluster_instance" {
   default_pool_size = var.cluster_worker_count
   machine_type    = var.ibm_container_cluster___cluster_instance___machine_type
   hardware        = var.ibm_container_cluster___cluster_instance___hardware
-  resource_group_id = data.ibm_resource_group.group.id
+  resource_group_id = data.ibm_resource_group.resource_group.id
   kube_version      = var.cluster_version
   public_vlan_id    = var.public_vlan_id
   private_vlan_id   = var.private_vlan_id  

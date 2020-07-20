@@ -54,6 +54,6 @@ variable cluster_exists {
     type = bool
 }
 
-data "ibm_resource_group" "group" {
+data "ibm_resource_group" "resource_group" {
   name = var.ibmcloud_resource_group
 }
