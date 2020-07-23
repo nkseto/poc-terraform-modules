@@ -34,7 +34,7 @@ variable cluster_worker_count {
 variable "cluster_version" {
   type        = string
   description = "The IKS cluster version to install. Use `ibmcloud ks versions` to see a list of cluster versions"
-  default     = "1.17.7"
+  default     = ""
 }
 
 variable "private_vlan_id" {

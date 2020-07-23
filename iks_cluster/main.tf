@@ -15,14 +15,13 @@ resource "ibm_container_cluster" "cluster_instance" {
 }
 
 locals {
-  temp_dir = "${path.cwd}/.tmp"
-  cluster_id_file = "cluster-id.txt"
+  temp_dir = "${path.cwd}"
+  cluster_id_file = ".cluster-id.txt"
   cluster_id = data.local_file.cluster_id.content != "" ? data.local_file.cluster_id.content : ibm_container_cluster.cluster_instance[0].id
-  cluster_name = var.ibm_container_cluster___cluster_instance___name
+  cluster_name = var.cluster_exists == false ? ibm_container_cluster.cluster_instance[0].name : var.ibm_container_cluster___cluster_instance___name
 }
 
 resource "null_resource" "check_cluster" {
-  count = var.cluster_exists != false ? 1 : 0
   provisioner "local-exec" {
     command = "${path.module}/scripts/check-cluster.sh"
 
@@ -34,9 +33,7 @@ resource "null_resource" "check_cluster" {
       FILE_NAME = "${local.cluster_id_file}"
     }
   }
-  triggers = {
-    cluster_name = "${var.ibm_container_cluster___cluster_instance___name}"
-  }
+  depends_on = [ibm_container_cluster.cluster_instance]
 }
 
 data "local_file" "cluster_id" {
