@@ -37,10 +37,10 @@ variable devex_toolchain___toolchain___deployment_container_registry_namespace {
     description = "The container registry namespace"
 }
 
-variable ibmcloud_resource_group {
+variable resource_group_name {
     description = "IBM Cloud Resource Group"
 }
 
 data "ibm_resource_group" "group" {
-  name = var.ibmcloud_resource_group
+  name = var.resource_group_name
 }

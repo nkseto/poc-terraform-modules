@@ -3,7 +3,7 @@ variable ibmcloud_api_key {
     description = "IBM API Key"
 }
 
-variable ibmcloud_resource_group {
+variable resource_group_name {
     description = "IBM Cloud Resource Group"
 }
 
@@ -55,5 +55,5 @@ variable cluster_exists {
 }
 
 data "ibm_resource_group" "resource_group" {
-  name = var.ibmcloud_resource_group
+  name = var.resource_group_name
 }
