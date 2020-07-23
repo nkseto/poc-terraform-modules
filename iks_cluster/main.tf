@@ -28,7 +28,7 @@ resource "null_resource" "check_cluster" {
 
     environment={
       APIKEY         = "${var.ibmcloud_api_key}"
-      RESOURCE_GROUP  = "${var.ibmcloud_resource_group}"
+      RESOURCE_GROUP  = "${var.resource_group_name}"
       CLUSTER_NAME= "${var.ibm_container_cluster___cluster_instance___name}"
       TEMP_DIR = "${local.temp_dir}"
       FILE_NAME = "${local.cluster_id_file}"
